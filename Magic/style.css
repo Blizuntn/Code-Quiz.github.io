@@ -26,6 +26,7 @@ input {
 }
 
 .main-container {
+  background-color: #f46188;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -38,7 +39,7 @@ input {
 button {
   display: inline-block;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #5e6df1;
+  background-color: #491d7f;
   border-radius: 10px;
   border: 3px double #cccccc;
   color: #eeeeee;
@@ -50,7 +51,8 @@ button {
 }
 
 button:hover {
-  box-shadow: 4px 3px 6px #4450bd;
+  box-shadow: 4px 3px 6px #7779ff;
+  background-color: #7779ff;
   color: black;
 }
 
@@ -62,7 +64,7 @@ button:hover {
 
 #timer {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #5a69f0;
+  background-color: #491d7f;
   color: #eeeeee;
   font-size: x-large;
   text-shadow: 0.5px 0.5px black;
@@ -96,7 +98,7 @@ button:hover {
   border-color: silver;
   border-bottom-style: groove;
   padding-bottom: 0.3rem;
-  background: black;
+  background: #642ab6;
 }
 
 #high-score-header {
@@ -104,7 +106,7 @@ button:hover {
   justify-content: space-around;
   border-bottom-style: outset;
   margin-bottom: 0.5rem;
-  background-color: #5e6df1;
+  background-color: #491d7f;
   color: #eeeeee;
   font-family: Arial, Helvetica, sans-serif;
 }
