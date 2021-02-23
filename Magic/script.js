@@ -24,7 +24,7 @@ var quizQuestions = [{
     choiceA: "As many as you want",
     choiceB: "3",
     choiceC: "1",
-    choiceD: "128",
+    choiceD: "123",
     correctAnswer: "c"
 },
 {
@@ -68,7 +68,7 @@ var quizQuestions = [{
     correctAnswer: "c"
 },
 {
-    question: "What HTML attributt references an external JavaScript file?",
+    question: "What HTML attribute references an external JavaScript file?",
     choiceA: "href",
     choiceB: "src",
     choiceC: "class",
@@ -79,7 +79,7 @@ var quizQuestions = [{
 
 var finalQuestionsIndex = quizQuestions.length;
 var currentQuestionsIndex = 0;
-var timeLeft = 76;
+var timeLeft = 81;
 var timerInterval;
 var score = 0;
 var correct;
@@ -107,7 +107,7 @@ function startQuiz(){
 
     timerInterval = setInterval(function(){
         timeLeft--;
-        quizTimer.textContent = "Time left: "+ timeLeft;
+        quizTimer.textContent = "Time left in seconds: "+ timeLeft;
 
         if(timeLeft === 0){
             clearInterval(timerInterval);
@@ -186,7 +186,7 @@ function replayQuiz(){
     highscoreContainer.style.display = "none";
     gameoverDiv.style.display = "none";
     startQuizDiv.style.display = "flex";
-    timeLeft = 76;
+    timeLeft = 81;
     score = 0;
     currentQuestionsIndex = 0;
 }
