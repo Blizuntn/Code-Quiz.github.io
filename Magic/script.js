@@ -1,26 +1,25 @@
 
-let quizBody = document.getElementById("quiz");
-let resltsEl = document.getElementById("result");
-const finalScoreEl = document.getElementById("final-score");
-const gameoverDiv = document.getElementById("gameover");
-const questionEl = document.getElementById("questions");
-const quizTimer = document.getElementById("timer");
-const startQuizButton = document.getElementById("startbutton");
-const startQuizDiv = document.getElementById("starting_page");
-const highscoreContainer = document.getElementById("highScoreContainer");
-const highscoreDiv = document.getElementById("high-scorepage");
-const highscoreInputName = document.getElementById("initials");
-const highscoreDisplayName = document.getElementById("high-score-initials");
-const endGameButtons= document.getElementById("endofGameButtons");
-const submitScoreBtn= document.getElementById("submitScore");
-const highscoreDisplayScore = document.getElementById("high-score-score");
-const buttonA = document.getElementById("a");
-const buttonB = document.getElementById("b");
-const buttonC = document.getElementById("c");
-const buttonD = document.getElementById("d");
+var quizBody = document.getElementById("quiz");
+var resltsEl = document.getElementById("result");
+var finalScoreEl = document.getElementById("final-score");
+var gameoverDiv = document.getElementById("gameover");
+var questionEl = document.getElementById("questions");
+var quizTimer = document.getElementById("timer");
+var startQuizButton = document.getElementById("startbutton");
+var startQuizDiv = document.getElementById("starting_page");
+var highscoreContainer = document.getElementById("highScoreContainer");
+var highscoreDiv = document.getElementById("high-scorepage");
+var highscoreInputName = document.getElementById("initials");
+var highscoreDisplayName = document.getElementById("high-score-initials");
+var endGameButtons= document.getElementById("endofGameButtons");
+var submitScoreBtn= document.getElementById("submitScore");
+var highscoreDisplayScore = document.getElementById("high-score-score");
+var buttonA = document.getElementById("a");
+var buttonB = document.getElementById("b");
+var buttonC = document.getElementById("c");
+var buttonD = document.getElementById("d");
 
-
-const quizQuestions = [{
+var quizQuestions = [{
     question: "How many elements can you apply an 'ID' attribute to?",
     choiceA: "As many as you want",
     choiceB: "3",
@@ -78,13 +77,14 @@ const quizQuestions = [{
 },    
 ];
 
+var finalQuestionsIndex = quizQuestions.length;
+var currentQuestionsIndex = 0;
+var timeLeft = 76;
+var timerInterval;
+var score = 0;
+var correct;
 
-const finalQuestionsIndex = quizQuestion.length;
-const currentQuestionsIndex = 0;
-const timeLeft = 76;
-const timerInterval;
-const score = 0;
-const correct;
+
 
 
 function generateQuizQuestions(){
@@ -92,7 +92,7 @@ function generateQuizQuestions(){
     if(currentQuestionsIndex === finalQuestionsIndex){
         return showScore();
     }
-    const currentQuestion = quizQuestion[currentQuestionsIndex];
+var currentQuestion = quizQuestions[currentQuestionsIndex];
     questionEl.innerHTML = "<p>" + currentQuestion.question + "<p>";
     buttonA.innerHTML = currentQuestion.choiceA;
     buttonB.innerHTML = currentQuestion.choiceB;
@@ -132,9 +132,9 @@ submitScoreBtn.addEventListener("click",function highScore (){
         alert("Initials cannot be blank");
         return false;
     }else{
-        const savedHighScores = JSON.parse(localStorage.getItem("savedHighScores")) || [];
-        const currentUser = highscoreInputName.value.trim();
-        const currentHighScore = {
+    var savedHighScores = JSON.parse(localStorage.getItem("savedHighScores")) || [];
+    var currentUser = highscoreInputName.value.trim();
+    var currentHighScore = {
             name: currentUser,
             score: score
         };
@@ -153,13 +153,13 @@ submitScoreBtn.addEventListener("click",function highScore (){
 function generateHighScores(){
     highscoreDisplayName.innerHTML = "";
     highscoreDisplayScore.innerHTML = "";
-    const highScores = JSON.parse(localStorage.getItem("savedHighScores")) || [];
-    for (i = 0; i <highScores.length; i++){
-        const newNamesSpan = document.createElement("li");
-        const newScoreSpan = document.createElement("li");
+    var highScores = JSON.parse(localStorage.getItem("savedHighScores")) || [];
+    for (i = 0; i < highScores.length; i++){
+        var newNamesSpan = document.createElement("li");
+        var newScoreSpan = document.createElement("li");
         newNamesSpan.textContent = highScores[i].name;
         newScoreSpan.textContent = highScores[i].score;
-        highscoreDisplayName.appendChild(newNameSpan);
+        highscoreDisplayName.appendChild(newNamesSpan);
         highscoreDisplayScore.appendChild(newScoreSpan);
     }
 }
