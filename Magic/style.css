@@ -51,6 +51,7 @@ button {
 
 button:hover {
   box-shadow: 4px 3px 6px #4450bd;
+  color: black;
 }
 
 #starting_page {
@@ -95,7 +96,7 @@ button:hover {
   border-color: silver;
   border-bottom-style: groove;
   padding-bottom: 0.3rem;
-  background: lightsteelblue;
+  background: black;
 }
 
 #high-score-header {
